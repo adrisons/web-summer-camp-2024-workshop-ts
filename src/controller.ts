@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { Controller } from "./decorators/controller";
-import { Get } from "./decorators/decors";
+import { Get, Param } from "./decorators/decors";
 import postsService from "./posts-service";
 
 @Controller("/posts")
@@ -16,9 +16,9 @@ export class PostsController {
   }
 
   @Get("/:postId")
-  public static getListById(req: Request, res: Response, next: NextFunction) {
-    const postId = parseInt(req.params["postId"]);
+  public static getListById(@Param("postId") postId: number) {
+    console.log("[Controller/getListById]", postId);
     const data = postsService.getPost(postId);
-    res.send(data).status(200);
+    return data;
   }
 }

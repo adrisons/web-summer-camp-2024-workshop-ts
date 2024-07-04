@@ -18,12 +18,12 @@ class App {
     controllers.forEach((controller) => {
       const basePath = Reflect.getMetadata("basePath", controller);
       const routes = Reflect.getMetadata("routes", controller);
-      console.log("basePath:", basePath);
-      console.log("routes", routes);
+      console.log("[App/controllersInit] basePath:", basePath);
+      console.log("[App/controllersInit] routes:", routes);
       let curPath: string, handler;
       routes.forEach((route: Route) => {
         curPath = basePath + route.path;
-        console.log(curPath);
+        console.log("[App/controllersInit]", curPath);
         handler = controller[route.propertyKey];
         this.app[route.httpMethod](curPath, handler);
       });
@@ -32,7 +32,7 @@ class App {
 
   private init(): void {
     this.app.listen(this.port, () => {
-      console.log("Server works", this.port);
+      console.log("[App/init] Server works", this.port);
     });
   }
 }
