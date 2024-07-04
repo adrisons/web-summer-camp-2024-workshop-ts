@@ -1,5 +1,3 @@
-import app from './app';
+import App from "./app";
 const port = 3000;
-app.listen(port, () => {
- console.log(`App Started on ${port}`);
-});
+const app = new App(port);
