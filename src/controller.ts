@@ -6,13 +6,9 @@ import postsService from "./posts-service";
 @Controller("/posts")
 export class PostsController {
   @Get()
-  public static getListOfPosts(
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) {
+  public static getListOfPosts() {
     const data = postsService.listPosts();
-    res.send(data).status(200);
+    return data;
   }
 
   @Get("/:postId")
