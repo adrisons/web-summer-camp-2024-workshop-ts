@@ -1,3 +1,5 @@
+// Decorators are run on the interpretation step that Typescript does before the code is actually executed.
+// So the code outside of descriptor.value should be executed only once. 
 export const log: MethodDecorator = (
     target,
     key: string | symbol,

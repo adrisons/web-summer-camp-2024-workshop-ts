@@ -16,7 +16,7 @@ const descriptor = Object.getOwnPropertyDescriptor(apt, "floor");
 
 Object.defineProperty(apt, "floor", { writable: false, configurable: false });
 
-// This line would cause a TS error (run `npm run ts` to test) because we defined the "floor" property as not writable
+// This line would cause a TS error (run `ts-node ./src/index.ts` to test) because we defined the "floor" property as not writable
 // apt.floor = 33;
 
 log(descriptor);
